@@ -7,7 +7,7 @@ import EventDetailedChat from "./EventDetailedChat";
 import EventDetailedSidebar from "./EventDetailedSidebar";
 
 const mapState = (state, ownProps) => {
-  const eventId = ownProps.math.params.id
+  const eventId = ownProps.match.params.id
 
   let event = {}
 
