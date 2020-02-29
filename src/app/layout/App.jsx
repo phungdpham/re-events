@@ -14,7 +14,7 @@ import TestComponent from "../../features/testarea/TestComponent";
 class App extends Component {
   render() {
     return (
-      <Fragment className>
+      <Fragment className >
         <Route exact path="/" component={HomePage} />
         <Route
           path="/(.+)"
