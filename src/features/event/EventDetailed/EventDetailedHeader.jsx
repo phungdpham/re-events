@@ -23,7 +23,7 @@ const EventDetailedHeader = ({ event }) => {
         <Image
           src={`/assets/categoryImages/${event.category}.jpg`}
           fluid
-          styled={eventImageStyle}
+          style={eventImageStyle}
         />
 
         <Segment basic style={eventImageTextStyle}>

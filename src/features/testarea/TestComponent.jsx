@@ -7,35 +7,35 @@ import SimpleMap from "./SimpleMap";
 import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 import { openModal } from "../modals/modalActions";
 
-const mapState = state => ({
+const mapState = (state) => ({
   data: state.test.data,
   loading: state.async.loading,
-  buttonName: state.async.elementName
+  buttonName: state.async.elementName,
 });
 
 const actions = {
   incrementAsysnc,
   decrementAsync,
-  openModal
+  openModal,
 };
 
 class TestComponent extends Component {
   state = {
     latlng: {
       lat: 59.95,
-      lng: 30.33
-    }
+      lng: 30.33,
+    },
   };
 
-  handleSelect = address => {
+  handleSelect = (address) => {
     geocodeByAddress(address)
-      .then(results => getLatLng(results[0]))
-      .then(latLng => {
+      .then((results) => getLatLng(results[0]))
+      .then((latLng) => {
         this.setState({
-          latlng: latLng
+          latlng: latLng,
         });
       })
-      .catch(error => console.error("Error", error));
+      .catch((error) => console.error("Error", error));
   };
 
   render() {
@@ -45,7 +45,7 @@ class TestComponent extends Component {
       decrementAsync,
       openModal,
       loading,
-      buttonName
+      buttonName,
     } = this.props;
     return (
       <div>
@@ -53,14 +53,14 @@ class TestComponent extends Component {
         <h3>the answer is: {data}</h3>
         <Button
           name="increment"
-          loading={buttonName === 'increment' && loading}
+          loading={buttonName === "increment" && loading}
           onClick={(e) => incrementAsysnc(e.target.name)}
           positive
           content="Increment"
         />
         <Button
           name="decrement"
-          loading={buttonName === 'decrement' && loading}
+          loading={buttonName === "decrement" && loading}
           onClick={(e) => decrementAsync(e.target.name)}
           negative
           content="Decrement"

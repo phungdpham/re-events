@@ -17,9 +17,6 @@ const mapstate = state => ({
 });
 
 class NavBar extends Component {
-  state = {
-    authenticated: false
-  };
 
   handleSignIn = () => {
     this.props.openModal("Login");
@@ -38,7 +35,7 @@ class NavBar extends Component {
     const { auth } = this.props;
     const authenticated = auth.authenticated;
     return (
-      <Menu inverted>
+      <Menu inverted fixed="top">
         <Container>
           <Menu.Item as={NavLink} exact to="/" header>
             <img src="/assets/logo.png" alt="logo" />

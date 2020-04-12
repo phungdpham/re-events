@@ -3,23 +3,24 @@ import { Grid } from "semantic-ui-react";
 import { connect } from "react-redux";
 import EventList from "../EventList/EventList";
 import { createEvent, deleteEvent, updateEvent } from "../eventActions";
-import LoadingComponents from "../../../app/layout/LoadingComponents";
+import { LoadingComponents } from "../../../app/layout/LoadingComponents";
 import EventActivity from "../EventActivity/EventActivity";
 import { firestoreConnect } from "react-redux-firebase";
 
-const mapState = state => ({
+const mapState = (state) => ({
   events: state.firestore.ordered.events,
-  loading: state.async.loading
+  loading: state.async.loading,
 });
 
 const actions = {
   createEvent,
   deleteEvent,
-  updateEvent
+  updateEvent,
 };
 
 class EventDashboard extends Component {
-  handleDeleteEvent = id => {
+
+  handleDeleteEvent = (id) => {
     this.props.deleteEvent(id);
   };
 
@@ -32,7 +33,8 @@ class EventDashboard extends Component {
           <EventList events={events} deleteEvent={this.handleDeleteEvent} />
         </Grid.Column>
         <Grid.Column width={6}>
-          <EventActivity contextRef={this.state.contextRef}/>
+          <h2>Activity Feed</h2>
+          <EventActivity contextRef={this.state.contextRef} />
         </Grid.Column>
       </Grid>
     );

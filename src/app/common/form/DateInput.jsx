@@ -18,7 +18,7 @@ const DateInput = ({
         selected={input.value ? new Date(input.value) : null}
         onChange={input.onChange}
         onBlur={input.onBlur}
-        onChnageRaw={(e) => e.preventDefault()}
+        onChangeRaw={(e) => e.preventDefault()}
       />
       {touched & error && (
         <Label basic color="red">
