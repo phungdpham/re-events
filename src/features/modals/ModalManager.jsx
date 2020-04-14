@@ -11,17 +11,17 @@ const modalLookup = {
 };
 
 const mapState = (state) => ({
-  currentModal: state.modals,
+  currentModal: state.modals
 });
 
 const ModalManager = ({ currentModal }) => {
-  let renderModal;
+  let renderedModal;
   if (currentModal) {
     const { modalType, modalProps } = currentModal;
     const ModalComponent = modalLookup[modalType];
-    renderModal = <ModalComponent {...modalProps} />;
+    renderedModal = <ModalComponent {...modalProps}/>
   }
-  return <div>{renderModal}</div>;
+  return <div>{renderedModal}</div>;
 };
 
 export default connect(mapState)(ModalManager);

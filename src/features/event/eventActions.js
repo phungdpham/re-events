@@ -2,59 +2,59 @@ import {
   CREATE_EVENT,
   UPDATE_EVENT,
   DELETE_EVENT,
-  FETCH_EVENTS
+  FETCH_EVENTS,
 } from "./eventConstants";
 import {
   asyncActionStart,
   asyncActionFinish,
-  asyncActionError
+  asyncActionError,
 } from "../async/asyncActions";
-import { fetchSampleData } from "../../app/data/mockApi";
 import { toastr } from "react-redux-toastr";
+import { fetchSampleData } from "../../app/data/mocApi";
 
-export const createEvent = event => {
-  return async dispatch => {
+export const createEvent = (event) => {
+  return async (dispatch) => {
     try {
       dispatch({
         type: CREATE_EVENT,
         payload: {
-          event
-        }
-      })
-      toastr.success('Success!', 'Event has been created');
+          event,
+        },
+      });
+      toastr.success("Success!", "Event has been created");
     } catch (error) {
-        toastr.error('Ooops', 'Something went wrong')
+      toastr.error("Oops", "Something went wrong");
     }
   };
 };
 
-export const updateEvent = event => {
-    return async dispatch => {
-        try {
-          dispatch({
-            type: UPDATE_EVENT,
-            payload: {
-              event
-            }
-          })
-          toastr.success('Success!', 'Event has been updated');
-        } catch (error) {
-            toastr.error('Ooops', 'Something went wrong')
-        }
-      };
+export const updateEvent = (event) => {
+  return async (dispatch) => {
+    try {
+      dispatch({
+        type: UPDATE_EVENT,
+        payload: {
+          event,
+        },
+      });
+      toastr.success("Success!", "Event has been updated");
+    } catch (error) {
+      toastr.error("Ooops", "Something went wrong");
+    }
+  };
 };
 
-export const deleteEvent = eventId => {
+export const deleteEvent = (eventId) => {
   return {
     type: DELETE_EVENT,
     payload: {
-      eventId
-    }
+      eventId,
+    },
   };
 };
 
 export const loadEvents = () => {
-  return async dispatch => {
+  return async (dispatch) => {
     try {
       dispatch(asyncActionStart());
       const events = await fetchSampleData();

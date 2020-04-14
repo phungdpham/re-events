@@ -3,8 +3,8 @@ import { Grid } from "semantic-ui-react";
 import { connect } from "react-redux";
 import EventList from "../EventList/EventList";
 import { createEvent, deleteEvent, updateEvent } from "../eventActions";
-import { LoadingComponents } from "../../../app/layout/LoadingComponents";
-import EventActivity from "../EventActivity/EventActivity";
+import LoadingComponent from "../../../app/layout/LoadingComponent";
+// import EventActivity from "../EventActivity/EventActivity";
 import { firestoreConnect } from "react-redux-firebase";
 
 const mapState = (state) => ({
@@ -26,7 +26,7 @@ class EventDashboard extends Component {
 
   render() {
     const { events, loading } = this.props;
-    if (loading) return <LoadingComponents />;
+    if (loading) return <LoadingComponent />;
     return (
       <Grid>
         <Grid.Column width={10}>
@@ -34,7 +34,7 @@ class EventDashboard extends Component {
         </Grid.Column>
         <Grid.Column width={6}>
           <h2>Activity Feed</h2>
-          <EventActivity contextRef={this.state.contextRef} />
+          {/* <EventActivity contextRef={this.state.contextRef} /> */}
         </Grid.Column>
       </Grid>
     );
